@@ -45,10 +45,6 @@ def getDoctors (type , location):
         location_input.clear()
         location_input.send_keys(location)
 
-        wait.until(
-            EC.text_to_be_present_in_element_value((By.CSS_SELECTOR,
-                "input.searchbar-input.searchbar-place-input"),
-                location))
 
         type_input = wait.until(
             EC.element_to_be_clickable((By.CSS_SELECTOR,
@@ -62,6 +58,10 @@ def getDoctors (type , location):
                 "input.searchbar-input.searchbar-query-input"),
             type))
         
+        wait.until(
+            EC.text_to_be_present_in_element_value((By.CSS_SELECTOR,
+                "input.searchbar-input.searchbar-place-input"),
+                location))
 
         location_input.send_keys(Keys.ENTER)
         
@@ -71,5 +71,5 @@ def getDoctors (type , location):
 
 getDoctors(
         type = "generaliste",
-        location = "75005"
+        location = "92330",
         )
